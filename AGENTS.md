@@ -9,6 +9,7 @@ Build a personal website with 25 landing page iterations and 1 gallery page.
 - No external APIs.
 - No data persistence.
 - Keep the project easy to deploy on Vercel.
+- Code using English ONLY.
 
 ## Process
 - v01-v10 should explore very different directions.
