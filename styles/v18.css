@@ -1,0 +1,488 @@
+:root {
+  --bg: #ffe4ec;
+  --bg-2: #ffd2e2;
+  --paper: rgba(255, 247, 244, 0.88);
+  --paper-soft: rgba(255, 250, 247, 0.92);
+  --ink: #75445f;
+  --muted: #9c6880;
+  --rose: #f29bc0;
+  --rose-deep: #d8749b;
+  --petal: #ffeef4;
+  --gold: #e3c187;
+  --sage: #b2c3b0;
+  --sage-deep: #889d89;
+  --line: rgba(216, 116, 155, 0.2);
+  --shadow: rgba(194, 122, 156, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.56), transparent 28%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wallpaper,
+.blush-cloud {
+  position: fixed;
+  pointer-events: none;
+}
+
+.wallpaper {
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 255, 255, 0.42), transparent 14%),
+    radial-gradient(circle at 80% 18%, rgba(255, 255, 255, 0.34), transparent 14%),
+    linear-gradient(120deg, transparent 0 10%, rgba(178, 195, 176, 0.16) 10.2% 10.8%, transparent 11% 100%),
+    linear-gradient(300deg, transparent 0 14%, rgba(216, 116, 155, 0.09) 14.2% 14.8%, transparent 15% 100%);
+  opacity: 0.95;
+}
+
+.wallpaper::before,
+.wallpaper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-repeat: repeat;
+  background-size: 240px 240px;
+}
+
+.wallpaper::before {
+  background-image:
+    radial-gradient(circle at 50% 42%, rgba(255, 238, 244, 0.9) 0 7px, transparent 7px),
+    radial-gradient(circle at 34% 50%, rgba(242, 155, 192, 0.72) 0 7px, transparent 7px),
+    radial-gradient(circle at 66% 50%, rgba(242, 155, 192, 0.72) 0 7px, transparent 7px),
+    radial-gradient(circle at 42% 64%, rgba(255, 238, 244, 0.9) 0 7px, transparent 7px),
+    radial-gradient(circle at 58% 64%, rgba(255, 238, 244, 0.9) 0 7px, transparent 7px),
+    radial-gradient(circle at 50% 54%, rgba(216, 116, 155, 0.52) 0 2px, transparent 2px);
+  opacity: 0.42;
+}
+
+.wallpaper::after {
+  background-image:
+    radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.8) 0 4px, transparent 4px),
+    radial-gradient(circle at 36% 50%, rgba(255, 255, 255, 0.76) 0 4px, transparent 4px),
+    radial-gradient(circle at 64% 50%, rgba(255, 255, 255, 0.76) 0 4px, transparent 4px),
+    radial-gradient(circle at 44% 62%, rgba(255, 255, 255, 0.82) 0 4px, transparent 4px),
+    radial-gradient(circle at 56% 62%, rgba(255, 255, 255, 0.82) 0 4px, transparent 4px);
+  opacity: 0.24;
+}
+
+.blush-cloud {
+  width: 36vw;
+  height: 28vh;
+  border-radius: 50%;
+  filter: blur(52px);
+  opacity: 0.32;
+}
+
+.blush-cloud-a {
+  top: 6%;
+  left: -10%;
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.blush-cloud-b {
+  right: -10%;
+  bottom: 10%;
+  background: rgba(255, 243, 248, 0.48);
+}
+
+.storybook-shell {
+  position: relative;
+  width: min(1220px, calc(100% - 36px));
+  margin: 28px auto 42px;
+  padding: 16px 0 26px;
+}
+
+.top-ribbon,
+.hero-glade,
+.chapter-card,
+.pathway-section,
+.cabinet-card {
+  position: relative;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 40px var(--shadow);
+  backdrop-filter: blur(6px);
+}
+
+.top-ribbon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  margin: 0 18px 22px;
+  padding: 16px 22px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(242, 155, 192, 0.18), rgba(255, 255, 255, 0.36)),
+    var(--paper-soft);
+}
+
+.back-link,
+.top-note,
+.eyebrow,
+.card-tag {
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.back-link {
+  font-weight: 700;
+}
+
+.top-note,
+.eyebrow,
+.card-tag {
+  color: var(--rose-deep);
+}
+
+.hero-glade {
+  margin: 0 18px 24px;
+  padding: 90px 72px 50px;
+  border-radius: 44px;
+  text-align: center;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.24), transparent 20%),
+    linear-gradient(135deg, rgba(242, 155, 192, 0.12), transparent 38%),
+    var(--paper);
+}
+
+.hero-glade::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px dashed rgba(216, 116, 155, 0.16);
+  border-radius: 34px;
+  pointer-events: none;
+}
+
+.hero-crest {
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crest-wing,
+.crest-moon {
+  display: block;
+}
+
+.crest-wing {
+  width: 28px;
+  height: 16px;
+  background: linear-gradient(90deg, rgba(227, 193, 135, 0.25), rgba(242, 155, 192, 0.7));
+  border-radius: 100% 0 100% 0;
+}
+
+.wing-left {
+  transform: rotate(-14deg);
+}
+
+.wing-right {
+  transform: scaleX(-1) rotate(-14deg);
+}
+
+.crest-moon {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.9), transparent 26%),
+    linear-gradient(180deg, #ffe8f1 0%, #f2b5cb 100%);
+  box-shadow: inset -10px -8px 0 rgba(255, 255, 255, 0.28);
+}
+
+.hero-copy {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+blockquote {
+  margin: 0;
+  font-weight: 400;
+}
+
+h1 {
+  margin-top: 18px;
+  font-size: clamp(3.2rem, 8vw, 6.2rem);
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.lead,
+.chapter-card p,
+.path-stop p,
+.note-list li,
+blockquote {
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.lead {
+  max-width: 62ch;
+  margin: 22px auto 0;
+  font-size: 1.04rem;
+}
+
+.hero-charms {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.hero-charms span {
+  padding: 9px 18px;
+  border-radius: 999px;
+  background: rgba(255, 247, 244, 0.9);
+  border: 1px solid rgba(216, 116, 155, 0.12);
+  color: var(--ink);
+  font-size: 0.85rem;
+  font-style: italic;
+}
+
+.chapter-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 22px;
+  margin: 0 18px 24px;
+  align-items: start;
+}
+
+.chapter-card {
+  padding: 28px;
+  border-radius: 30px;
+}
+
+.chapter-card h2,
+.pathway-heading h2 {
+  margin-top: 12px;
+  font-size: clamp(1.9rem, 3vw, 3rem);
+  line-height: 1.02;
+}
+
+.chapter-card p + p {
+  margin-top: 14px;
+}
+
+.chapter-card-large {
+  min-height: 100%;
+  background:
+    linear-gradient(135deg, rgba(242, 155, 192, 0.14), transparent 35%),
+    var(--paper-soft);
+}
+
+.oval-card {
+  border-radius: 46% 46% 42% 42% / 18% 18% 22% 22%;
+  background:
+    radial-gradient(circle at top, rgba(255, 238, 244, 0.66), transparent 32%),
+    rgba(255, 250, 247, 0.95);
+}
+
+.ribbon-card {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 210px 1fr;
+  gap: 24px;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(242, 155, 192, 0.15), rgba(255, 250, 243, 0) 42%),
+    rgba(255, 251, 246, 0.94);
+}
+
+.ribbon-card::before {
+  content: "";
+  width: 100%;
+  min-height: 180px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at 50% 42%, rgba(255, 238, 244, 0.95) 0 18px, transparent 18px),
+    radial-gradient(circle at 34% 50%, rgba(242, 155, 192, 0.76) 0 18px, transparent 18px),
+    radial-gradient(circle at 66% 50%, rgba(242, 155, 192, 0.76) 0 18px, transparent 18px),
+    radial-gradient(circle at 42% 64%, rgba(255, 238, 244, 0.92) 0 18px, transparent 18px),
+    radial-gradient(circle at 58% 64%, rgba(255, 238, 244, 0.92) 0 18px, transparent 18px),
+    radial-gradient(circle at 50% 54%, rgba(216, 116, 155, 0.62) 0 4px, transparent 4px),
+    linear-gradient(180deg, #fff4f8 0%, #ffe6ee 100%);
+  box-shadow: inset 0 0 0 1px rgba(216, 116, 155, 0.08);
+}
+
+.pathway-section {
+  margin: 0 18px 24px;
+  padding: 32px 30px;
+  border-radius: 38px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.24), transparent 40%),
+    var(--paper);
+}
+
+.pathway-heading {
+  max-width: 780px;
+  margin-bottom: 26px;
+}
+
+.pathway-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.path-stop {
+  position: relative;
+  padding: 20px 18px 18px;
+  background: rgba(255, 255, 255, 0.46);
+  border: 1px dashed rgba(216, 116, 155, 0.18);
+  border-radius: 26px;
+}
+
+.stop-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 16px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff4f8 0%, #f3bed1 100%);
+  color: var(--rose-deep);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  box-shadow: 0 0 18px rgba(242, 155, 192, 0.14);
+}
+
+.path-stop h3 {
+  margin-bottom: 10px;
+  font-size: 1.45rem;
+}
+
+.cabinet-section {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 22px;
+  margin: 0 18px;
+}
+
+.cabinet-card {
+  padding: 28px;
+  border-radius: 30px;
+}
+
+.note-card {
+  background:
+    linear-gradient(135deg, rgba(178, 195, 176, 0.14), transparent 40%),
+    rgba(255, 253, 248, 0.94);
+}
+
+.quote-card {
+  background:
+    linear-gradient(135deg, rgba(242, 155, 192, 0.14), transparent 44%),
+    rgba(255, 250, 243, 0.94);
+}
+
+.note-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.note-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(216, 116, 155, 0.14);
+}
+
+.note-list li:last-child {
+  border-bottom: 1px solid rgba(216, 116, 155, 0.14);
+}
+
+blockquote {
+  margin-top: 16px;
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+@media (max-width: 980px) {
+  .chapter-layout,
+  .pathway-track,
+  .cabinet-section,
+  .ribbon-card {
+    grid-template-columns: 1fr;
+  }
+
+  .oval-card,
+  .ribbon-card {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .storybook-shell {
+    width: min(100% - 16px, 1220px);
+    margin: 10px auto 22px;
+  }
+
+  .top-ribbon,
+  .hero-glade,
+  .chapter-layout,
+  .pathway-section,
+  .cabinet-section {
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+
+  .top-ribbon {
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 28px;
+  }
+
+  .hero-glade,
+  .chapter-card,
+  .pathway-section,
+  .cabinet-card {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .hero-glade {
+    padding-top: 86px;
+    border-radius: 28px;
+  }
+
+  h1 {
+    font-size: clamp(2.6rem, 12vw, 4.2rem);
+  }
+
+  .chapter-card h2,
+  .pathway-heading h2 {
+    font-size: clamp(1.6rem, 8vw, 2.3rem);
+  }
+}

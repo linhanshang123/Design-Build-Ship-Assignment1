@@ -1,0 +1,600 @@
+:root {
+  --bg: #12061d;
+  --bg-2: #090618;
+  --panel: rgba(17, 13, 32, 0.82);
+  --panel-soft: rgba(31, 22, 49, 0.78);
+  --panel-bright: rgba(255, 130, 201, 0.16);
+  --ink: #fff6ff;
+  --muted: #e2d5f4;
+  --pink: #ff68c8;
+  --peach: #ffb67d;
+  --cyan: #7cefff;
+  --violet: #8c74ff;
+  --line: rgba(203, 154, 255, 0.24);
+  --shadow: rgba(0, 0, 0, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 20% 16%, rgba(255, 182, 125, 0.2), transparent 16%),
+    radial-gradient(circle at 78% 14%, rgba(124, 239, 255, 0.16), transparent 18%),
+    radial-gradient(circle at 50% 84%, rgba(140, 116, 255, 0.2), transparent 24%),
+    linear-gradient(135deg, #1b0b27 0%, #35164d 24%, #7d3f87 44%, #5c5fe4 68%, #122246 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01)),
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 34px,
+      rgba(255, 255, 255, 0.028) 34px,
+      rgba(255, 255, 255, 0.028) 35px
+    );
+  opacity: 0.48;
+}
+
+.aura,
+.scan-noise {
+  position: fixed;
+  pointer-events: none;
+}
+
+.aura {
+  width: 38vw;
+  height: 120vh;
+  filter: blur(62px);
+  opacity: 0.34;
+}
+
+.aura-left {
+  top: -8%;
+  left: -12%;
+  background: linear-gradient(180deg, rgba(255, 104, 200, 0.58), transparent 68%);
+  transform: rotate(12deg);
+}
+
+.aura-right {
+  top: -8%;
+  right: -12%;
+  background: linear-gradient(180deg, rgba(124, 239, 255, 0.52), transparent 68%);
+  transform: rotate(-10deg);
+}
+
+.aura-bottom {
+  bottom: -36%;
+  left: 28%;
+  height: 72vh;
+  background: radial-gradient(circle, rgba(255, 182, 125, 0.4), transparent 62%);
+}
+
+.scan-noise {
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(255, 255, 255, 0.08) 0 1px, transparent 1px),
+    radial-gradient(circle at 76% 38%, rgba(255, 255, 255, 0.06) 0 1px, transparent 1px),
+    radial-gradient(circle at 58% 74%, rgba(255, 255, 255, 0.05) 0 1px, transparent 1px);
+  background-size: 180px 180px, 220px 220px, 210px 210px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.atlas-page {
+  width: min(100vw, 1600px);
+  min-height: 100vh;
+  padding: 8px;
+  margin: 0 auto;
+}
+
+.screen-shell {
+  min-height: calc(100vh - 16px);
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 14%),
+    rgba(11, 10, 21, 0.7);
+  border: 1px solid rgba(255, 194, 240, 0.22);
+  border-radius: 24px;
+  box-shadow:
+    0 30px 60px var(--shadow),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+.screen-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.screen-brand,
+.back-link,
+.tile-tag,
+.tile-label,
+.panel-tag {
+  margin: 0;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.screen-brand,
+.tile-tag,
+.tile-label,
+.panel-tag {
+  color: #ffd0f0;
+}
+
+.back-link {
+  font-weight: 700;
+}
+
+.mosaic-grid {
+  display: grid;
+  grid-template-columns: 1.55fr 0.9fr 0.95fr 1.1fr;
+  grid-template-rows: 320px 180px 220px 230px;
+  gap: 14px;
+  min-height: calc(100vh - 96px);
+  margin-bottom: 14px;
+}
+
+.tile,
+.roadmap-section {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+  border-radius: 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow:
+    0 18px 38px rgba(0, 0, 0, 0.24),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+}
+
+.tile h1,
+.tile h2,
+.roadmap-heading h2,
+.road-stop h3 {
+  margin: 0;
+}
+
+.tile-hero {
+  grid-column: 1 / span 3;
+  grid-row: 1 / span 2;
+  padding: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 12%),
+    linear-gradient(180deg, rgba(34, 18, 54, 0.76) 0%, rgba(18, 16, 41, 0.78) 46%, rgba(16, 12, 35, 0.86) 100%);
+}
+
+.city-scene {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(255, 183, 126, 0.18), transparent 15%),
+    linear-gradient(180deg, rgba(124, 239, 255, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(255, 104, 200, 0.1), transparent 30%),
+    linear-gradient(180deg, #2e1847 0%, #181434 52%, #0e1021 100%);
+}
+
+.scene-sun,
+.scene-grid,
+.scene-tower,
+.scene-glow {
+  position: absolute;
+}
+
+.scene-sun {
+  top: 62px;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background:
+    linear-gradient(180deg, rgba(255, 186, 129, 0.96), rgba(255, 108, 204, 0.92));
+  box-shadow: 0 0 56px rgba(255, 140, 200, 0.34);
+}
+
+.scene-sun::after {
+  content: "";
+  position: absolute;
+  inset: 44% 0 auto 0;
+  height: 2px;
+  background: rgba(46, 24, 71, 0.6);
+  box-shadow:
+    0 18px 0 rgba(46, 24, 71, 0.54),
+    0 36px 0 rgba(46, 24, 71, 0.48),
+    0 54px 0 rgba(46, 24, 71, 0.42);
+}
+
+.scene-grid {
+  left: -4%;
+  right: -4%;
+  bottom: -10%;
+  height: 42%;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 100% 30px, 56px 100%;
+  transform: perspective(580px) rotateX(76deg);
+  transform-origin: bottom center;
+  opacity: 0.18;
+}
+
+.scene-tower {
+  bottom: 90px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+    linear-gradient(90deg, rgba(255, 104, 200, 0.16), rgba(124, 239, 255, 0.16));
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+.tower-left {
+  left: 12%;
+  width: 16%;
+  height: 34%;
+}
+
+.tower-center {
+  left: 42%;
+  width: 20%;
+  height: 68%;
+}
+
+.tower-right {
+  right: 12%;
+  width: 16%;
+  height: 48%;
+}
+
+.scene-tower::before {
+  content: "";
+  position: absolute;
+  inset: 12px 20%;
+  background:
+    repeating-linear-gradient(
+      180deg,
+      rgba(255, 200, 238, 0.72),
+      rgba(255, 200, 238, 0.72) 4px,
+      transparent 4px,
+      transparent 11px
+    );
+  opacity: 0.34;
+}
+
+.scene-glow {
+  left: 50%;
+  bottom: 70px;
+  width: 340px;
+  height: 340px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(124, 239, 255, 0.24) 0%, rgba(255, 104, 200, 0.18) 34%, transparent 72%);
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: 26px 24px 22px;
+  background:
+    linear-gradient(180deg, transparent 0%, rgba(11, 11, 22, 0.22) 12%, rgba(11, 11, 22, 0.8) 100%);
+}
+
+.tile-hero h1 {
+  margin-top: 12px;
+  max-width: 14ch;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.2rem, 4.2vw, 4rem);
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+.hero-copy,
+.tile p,
+.road-stop p,
+.stat-list li,
+.portrait-role {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.hero-copy {
+  max-width: 58ch;
+  margin: 16px 0 0;
+}
+
+.tile-portrait {
+  grid-column: 4;
+  grid-row: 1 / span 2;
+  background:
+    linear-gradient(180deg, rgba(255, 182, 125, 0.12), transparent 24%),
+    linear-gradient(180deg, rgba(255, 104, 200, 0.12), transparent 38%),
+    linear-gradient(180deg, #25163f 0%, #131128 100%);
+}
+
+.portrait-glow {
+  position: absolute;
+  inset: 22px;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 50% 24%, rgba(124, 239, 255, 0.28), transparent 24%),
+    linear-gradient(180deg, rgba(255, 104, 200, 0.18), transparent 28%),
+    linear-gradient(180deg, #251940 0%, #111121 100%);
+}
+
+.portrait-glow::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 68%;
+  height: 82%;
+  transform: translateX(-50%);
+  background:
+    radial-gradient(circle at 50% 20%, rgba(255, 255, 255, 0.16), transparent 18%),
+    linear-gradient(180deg, rgba(255, 183, 126, 0.42), rgba(255, 104, 200, 0.34) 54%, rgba(124, 239, 255, 0.18));
+  clip-path: polygon(50% 0, 62% 8%, 70% 26%, 72% 42%, 84% 70%, 88% 100%, 12% 100%, 16% 70%, 28% 42%, 30% 26%, 38% 8%);
+}
+
+.portrait-card {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(10, 8, 19, 0.74);
+  border: 1px solid rgba(255, 206, 235, 0.18);
+}
+
+.portrait-name {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.portrait-role {
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+}
+
+.tile-mini {
+  padding: 16px;
+}
+
+.tile-stats {
+  grid-column: 1;
+  grid-row: 3;
+  background:
+    linear-gradient(135deg, rgba(255, 182, 125, 0.26), rgba(255, 104, 200, 0.22) 48%, rgba(124, 239, 255, 0.18)),
+    var(--panel-bright);
+}
+
+.tile-stats .tile-tag,
+.tile-stats .stat-list li span,
+.tile-stats .stat-list li strong {
+  color: white;
+}
+
+.stat-list {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+}
+
+.stat-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.stat-list li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.tile-research {
+  grid-column: 2;
+  grid-row: 3 / span 2;
+  background:
+    linear-gradient(135deg, rgba(124, 239, 255, 0.14), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent 20%),
+    var(--panel-soft);
+}
+
+.tile-research h2,
+.tile-photo h2,
+.tile-gaming h2,
+.tile-music h2,
+.roadmap-heading h2 {
+  margin-top: 10px;
+  font-size: clamp(1.45rem, 2vw, 2.3rem);
+  line-height: 1.04;
+}
+
+.tile-photo-a {
+  grid-column: 3;
+  grid-row: 3;
+  background:
+    linear-gradient(180deg, rgba(255, 182, 125, 0.16), transparent 26%),
+    linear-gradient(135deg, rgba(255, 104, 200, 0.2), rgba(124, 239, 255, 0.12)),
+    var(--panel-soft);
+}
+
+.tile-photo-b {
+  grid-column: 1;
+  grid-row: 4;
+  background:
+    radial-gradient(circle at 50% 26%, rgba(124, 239, 255, 0.22), transparent 20%),
+    linear-gradient(135deg, rgba(255, 182, 125, 0.16), rgba(140, 116, 255, 0.14)),
+    var(--panel-soft);
+}
+
+.tile-gaming {
+  grid-column: 3 / span 2;
+  grid-row: 4;
+  background:
+    linear-gradient(135deg, rgba(255, 104, 200, 0.16), transparent 38%),
+    linear-gradient(180deg, rgba(124, 239, 255, 0.1), transparent 22%),
+    var(--panel-soft);
+}
+
+.tile-music {
+  grid-column: 4;
+  grid-row: 3;
+  background:
+    linear-gradient(135deg, rgba(124, 239, 255, 0.18), rgba(255, 104, 200, 0.3)),
+    rgba(255, 120, 199, 0.26);
+}
+
+.roadmap-section {
+  padding: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent 18%),
+    rgba(16, 12, 31, 0.76);
+}
+
+.roadmap-heading {
+  margin-bottom: 28px;
+}
+
+.roadmap-track {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  position: relative;
+}
+
+.road-stop {
+  position: relative;
+  padding-top: 38px;
+}
+
+.road-stop.active-stop:first-child::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 18px;
+  width: calc(100% + 18px);
+  height: 2px;
+  background: linear-gradient(90deg, var(--peach), rgba(124, 239, 255, 0.24));
+}
+
+.stop-dot {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 214, 240, 0.32);
+  background: #0d0d15;
+}
+
+.active-stop .stop-dot {
+  background: linear-gradient(180deg, var(--peach) 0%, var(--pink) 52%, var(--cyan) 100%);
+  box-shadow: 0 0 20px rgba(124, 239, 255, 0.22);
+}
+
+.road-stop h3 {
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 1100px) {
+  .mosaic-grid,
+  .roadmap-track {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  .tile-hero,
+  .tile-portrait,
+  .tile-stats,
+  .tile-research,
+  .tile-photo-a,
+  .tile-photo-b,
+  .tile-gaming,
+  .tile-music {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .tile-hero,
+  .tile-portrait {
+    min-height: 520px;
+  }
+}
+
+@media (max-width: 700px) {
+  .atlas-page {
+    padding: 6px;
+  }
+
+  .screen-shell {
+    min-height: calc(100vh - 12px);
+    padding: 14px;
+    border-radius: 18px;
+  }
+
+  .screen-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .mosaic-grid,
+  .roadmap-track {
+    grid-template-columns: 1fr;
+  }
+
+  .mosaic-grid {
+    min-height: 0;
+  }
+
+  .road-stop.active-stop:first-child::before {
+    display: none;
+  }
+
+  .tile-hero,
+  .tile-portrait {
+    min-height: 420px;
+  }
+
+  .tile-hero h1 {
+    max-width: 12ch;
+    font-size: clamp(1.95rem, 9vw, 3.1rem);
+  }
+
+  .scene-sun {
+    top: 86px;
+    width: 160px;
+    height: 160px;
+  }
+}
