@@ -1,0 +1,428 @@
+:root {
+  --bg: #ffdce7;
+  --bg-2: #ffc7da;
+  --bg-3: #f7b0cc;
+  --rose: #f28ab4;
+  --rose-deep: #d96b98;
+  --cream: #fff7f4;
+  --cream-2: #fff0f6;
+  --ink: #7e3f61;
+  --muted: #9b6580;
+  --line: rgba(217, 107, 152, 0.22);
+  --shadow: rgba(182, 94, 137, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.56), transparent 28%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 52%, var(--bg-3) 100%);
+  overflow-x: hidden;
+}
+
+.blush-cloud,
+.sparkle-field {
+  position: fixed;
+  pointer-events: none;
+}
+
+.blush-cloud {
+  width: 36vw;
+  height: 28vh;
+  border-radius: 50%;
+  filter: blur(52px);
+  opacity: 0.34;
+}
+
+.blush-cloud-a {
+  top: 6%;
+  left: -10%;
+  background: rgba(255, 255, 255, 0.54);
+}
+
+.blush-cloud-b {
+  right: -10%;
+  bottom: 10%;
+  background: rgba(255, 243, 248, 0.48);
+}
+
+.sparkle-field {
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(255, 255, 255, 0.82) 0 1px, transparent 1px),
+    radial-gradient(circle at 76% 30%, rgba(255, 255, 255, 0.74) 0 1px, transparent 1px),
+    radial-gradient(circle at 62% 72%, rgba(255, 255, 255, 0.68) 0 1px, transparent 1px),
+    radial-gradient(circle at 28% 80%, rgba(255, 255, 255, 0.74) 0 1px, transparent 1px);
+  background-size: 220px 220px, 280px 280px, 260px 260px, 240px 240px;
+  opacity: 0.56;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.home-shell {
+  position: relative;
+  width: min(1180px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 24px 0 42px;
+}
+
+.welcome-ribbon,
+.house-front,
+.room-card,
+.memory-note,
+.memory-polaroid,
+.path-room,
+.letter-card {
+  position: relative;
+  background: rgba(255, 247, 244, 0.82);
+  border: 1px solid var(--line);
+  box-shadow: 0 20px 38px var(--shadow);
+  backdrop-filter: blur(4px);
+}
+
+.welcome-ribbon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border-radius: 999px;
+  background:
+    linear-gradient(90deg, rgba(242, 138, 180, 0.18), rgba(255, 255, 255, 0.36)),
+    rgba(255, 247, 244, 0.84);
+}
+
+.back-link,
+.welcome-note,
+.eyebrow,
+.window-tag,
+.room-tag {
+  margin: 0;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.welcome-note,
+.eyebrow,
+.window-tag,
+.room-tag {
+  color: var(--rose-deep);
+}
+
+.back-link {
+  font-weight: 700;
+}
+
+.house-front {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 34px 30px 28px;
+  border-radius: 34px;
+  overflow: hidden;
+}
+
+.house-front::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px dashed rgba(217, 107, 152, 0.18);
+  border-radius: 26px;
+  pointer-events: none;
+}
+
+.curtain {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 180px;
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(242, 138, 180, 0.88),
+      rgba(242, 138, 180, 0.88) 18px,
+      rgba(255, 206, 223, 0.92) 18px,
+      rgba(255, 206, 223, 0.92) 36px
+    );
+  opacity: 0.72;
+}
+
+.curtain-left {
+  left: 18px;
+  border-radius: 0 0 28px 0;
+}
+
+.curtain-right {
+  right: 18px;
+  border-radius: 0 0 0 28px;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 12px;
+  max-width: 10.5ch;
+  font-size: clamp(3rem, 7vw, 5.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.lead,
+.window-card li,
+.room-card p,
+.memory-note p,
+.path-stop p,
+.letter-card p,
+.memory-polaroid p {
+  color: var(--muted);
+  line-height: 1.84;
+}
+
+.lead {
+  max-width: 56ch;
+  margin: 18px 0 0;
+  font-size: 1.04rem;
+}
+
+.window-card {
+  padding: 22px 20px;
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.54), rgba(255, 240, 246, 0.9)),
+    var(--cream-2);
+  border: 1px solid rgba(217, 107, 152, 0.14);
+}
+
+.mood-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.mood-list li {
+  padding: 10px 0;
+  border-top: 1px solid rgba(217, 107, 152, 0.14);
+}
+
+.mood-list li:last-child {
+  border-bottom: 1px solid rgba(217, 107, 152, 0.14);
+}
+
+.room-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.room-card,
+.memory-note,
+.letter-card {
+  padding: 24px;
+  border-radius: 28px;
+}
+
+.sunroom-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent 40%),
+    rgba(255, 247, 244, 0.9);
+}
+
+.study-card {
+  background:
+    linear-gradient(135deg, rgba(242, 138, 180, 0.14), transparent 42%),
+    rgba(255, 242, 246, 0.88);
+}
+
+.room-card h2,
+.memory-note h2,
+.path-heading h2,
+.letter-card h2 {
+  margin-top: 12px;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.04;
+}
+
+.memory-strip {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 20px;
+}
+
+.memory-polaroid {
+  padding: 14px 14px 20px;
+  border-radius: 18px;
+  background: var(--cream);
+  transform: rotate(3deg);
+}
+
+.polaroid-photo {
+  min-height: 250px;
+  border-radius: 10px;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(255, 255, 255, 0.84), transparent 22%),
+    linear-gradient(180deg, rgba(242, 138, 180, 0.2), rgba(255, 255, 255, 0)),
+    linear-gradient(180deg, #f6bdd4 0%, #ffd9e7 52%, #fff3f7 100%);
+}
+
+.memory-polaroid p {
+  margin: 14px 0 0;
+  text-align: center;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.path-room {
+  margin-bottom: 20px;
+  padding: 24px;
+  border-radius: 30px;
+}
+
+.path-heading {
+  margin-bottom: 24px;
+}
+
+.path-line {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  position: relative;
+}
+
+.path-line::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 18px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(242, 138, 180, 0.82), rgba(217, 107, 152, 0.24));
+}
+
+.path-stop {
+  position: relative;
+  padding-top: 42px;
+}
+
+.stop-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #fff0f6 0%, #f29bc0 100%);
+  box-shadow: 0 0 18px rgba(242, 138, 180, 0.18);
+}
+
+.path-stop h3 {
+  margin-bottom: 8px;
+  font-size: 1.3rem;
+}
+
+.letter-room {
+  position: relative;
+  padding-top: 16px;
+}
+
+.envelope-mark {
+  position: absolute;
+  top: 0;
+  right: 26px;
+  width: 88px;
+  height: 60px;
+  background:
+    linear-gradient(135deg, transparent 48%, rgba(242, 138, 180, 0.9) 49% 51%, transparent 52%),
+    linear-gradient(225deg, transparent 48%, rgba(242, 138, 180, 0.9) 49% 51%, transparent 52%),
+    var(--cream);
+  border: 1px solid rgba(217, 107, 152, 0.22);
+  border-radius: 10px;
+  transform: rotate(8deg);
+  box-shadow: 0 14px 24px rgba(182, 94, 137, 0.14);
+}
+
+.letter-card {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.48), transparent 42%),
+    rgba(255, 247, 244, 0.9);
+}
+
+@media (max-width: 980px) {
+  .house-front,
+  .room-grid,
+  .memory-strip,
+  .path-line {
+    grid-template-columns: 1fr;
+  }
+
+  .path-line::before {
+    display: none;
+  }
+
+  .memory-polaroid {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .home-shell {
+    width: min(100% - 16px, 1180px);
+    padding-top: 16px;
+    padding-bottom: 28px;
+  }
+
+  .welcome-ribbon {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .house-front,
+  .room-card,
+  .memory-note,
+  .path-room,
+  .letter-card {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .curtain {
+    width: 72px;
+    height: 112px;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 12vw, 4.2rem);
+  }
+
+  .room-card h2,
+  .memory-note h2,
+  .path-heading h2,
+  .letter-card h2 {
+    font-size: clamp(1.5rem, 8vw, 2.2rem);
+  }
+
+  .envelope-mark {
+    right: 12px;
+  }
+}
