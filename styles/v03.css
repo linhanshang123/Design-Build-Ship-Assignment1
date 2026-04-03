@@ -1,0 +1,338 @@
+:root {
+  --bg-top: #12091f;
+  --bg-mid: #24144b;
+  --bg-bottom: #071329;
+  --text: #fff7ff;
+  --muted: #dccde7;
+  --line: rgba(255, 194, 240, 0.3);
+  --pink: #ff79c7;
+  --peach: #ffb374;
+  --cyan: #78f7ff;
+  --violet: #8d7cff;
+  --ice: #b6cbff;
+  --panel: rgba(16, 12, 39, 0.62);
+  --panel-strong: rgba(24, 17, 55, 0.84);
+  --shadow: rgba(0, 0, 0, 0.34);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  background:
+    linear-gradient(180deg, #ff9d7a 0%, #ff7dc6 18%, #735bff 46%, #16264f 72%, #071329 100%);
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 100% 5px, 72px 72px;
+  opacity: 0.16;
+}
+
+.sky-glow {
+  position: fixed;
+  inset: auto;
+  width: 38vw;
+  height: 38vw;
+  border-radius: 50%;
+  filter: blur(30px);
+  pointer-events: none;
+  opacity: 0.35;
+}
+
+.sky-glow-left {
+  top: 12%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(255, 179, 116, 0.9), transparent 65%);
+}
+
+.sky-glow-right {
+  right: -8%;
+  bottom: 16%;
+  background: radial-gradient(circle, rgba(120, 247, 255, 0.7), transparent 65%);
+}
+
+a {
+  color: inherit;
+}
+
+.signal-shell {
+  position: relative;
+  width: min(1160px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.signal-topbar,
+.hero-panel,
+.mood-card,
+.timeline-panel,
+.manifesto-card,
+.track-card,
+.footer-panel {
+  position: relative;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow:
+    0 20px 48px var(--shadow),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.signal-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+  padding: 14px 18px;
+  background: rgba(10, 10, 28, 0.54);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+}
+
+.back-link {
+  text-decoration: none;
+}
+
+.signal-meta,
+.eyebrow,
+.note-label,
+.card-tag,
+.time-mark {
+  margin: 0;
+  color: var(--cyan);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.76rem;
+}
+
+.hero-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(260px, 0.7fr);
+  gap: 22px;
+  padding: 30px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.hero-panel::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -35% auto;
+  width: 440px;
+  height: 440px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, rgba(255, 179, 116, 0.95) 0 18%, rgba(255, 121, 199, 0.9) 18% 28%, rgba(141, 124, 255, 0.9) 28% 38%, transparent 38%);
+  opacity: 0.42;
+}
+
+.hero-copy,
+.hero-note,
+.timeline-panel,
+.manifesto-card,
+.track-card,
+.footer-panel {
+  z-index: 1;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+h1 {
+  margin-top: 14px;
+  font-size: clamp(2.9rem, 6.2vw, 5.8rem);
+  line-height: 0.95;
+  letter-spacing: -0.05em;
+  max-width: 11ch;
+}
+
+.lead,
+.hero-note p,
+.mood-card p,
+.timeline-stop p,
+.manifesto-card p,
+.footer-copy,
+.track-list li {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.lead {
+  max-width: 62ch;
+  margin: 18px 0 0;
+  font-size: 1.03rem;
+}
+
+.hero-note {
+  align-self: start;
+  padding: 22px;
+  background: var(--panel-strong);
+}
+
+.hero-note p {
+  margin: 14px 0 0;
+}
+
+.mood-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.mood-card {
+  padding: 22px;
+  min-height: 100%;
+}
+
+.mood-card h2,
+.manifesto-card h2 {
+  margin: 12px 0 14px;
+  font-size: clamp(1.5rem, 2.8vw, 2.35rem);
+  line-height: 1.08;
+}
+
+.city-pop-card {
+  background:
+    linear-gradient(180deg, rgba(255, 179, 116, 0.12), transparent 55%),
+    linear-gradient(135deg, rgba(255, 121, 199, 0.12), rgba(120, 247, 255, 0.06)),
+    var(--panel);
+}
+
+.post-punk-card {
+  background:
+    linear-gradient(180deg, rgba(182, 203, 255, 0.12), transparent 60%),
+    linear-gradient(135deg, rgba(7, 19, 41, 0.2), rgba(141, 124, 255, 0.08)),
+    var(--panel);
+}
+
+.rock-card {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), transparent 55%),
+    linear-gradient(135deg, rgba(255, 179, 116, 0.18), rgba(255, 121, 199, 0.08)),
+    var(--panel);
+}
+
+.timeline-panel {
+  padding: 26px;
+  margin-bottom: 20px;
+}
+
+.section-heading h2 {
+  margin-top: 10px;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  line-height: 1.06;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.timeline-stop {
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(8, 8, 26, 0.28);
+}
+
+.timeline-stop h3 {
+  margin: 12px 0 12px;
+  font-size: 1.4rem;
+}
+
+.split-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+  gap: 18px;
+  margin-bottom: 20px;
+}
+
+.manifesto-card,
+.track-card {
+  padding: 24px;
+}
+
+.track-list {
+  list-style: none;
+  margin: 16px 0 0;
+  padding: 0;
+}
+
+.track-list li {
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.86rem;
+}
+
+.track-list li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-panel {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  padding: 20px 24px;
+}
+
+.footer-copy {
+  margin: 10px 0 0;
+}
+
+@media (max-width: 960px) {
+  .hero-panel,
+  .mood-grid,
+  .timeline,
+  .split-panel,
+  .footer-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .signal-shell {
+    width: min(100% - 20px, 1160px);
+    padding: 18px 0 32px;
+  }
+
+  .signal-topbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-panel,
+  .timeline-panel,
+  .manifesto-card,
+  .track-card,
+  .footer-panel,
+  .mood-card {
+    padding: 18px;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 13vw, 3.8rem);
+  }
+}
