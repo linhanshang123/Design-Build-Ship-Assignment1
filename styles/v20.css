@@ -22,7 +22,7 @@ body {
   font-family: Georgia, "Times New Roman", serif;
   background:
     radial-gradient(circle at 50% 14%, rgba(255, 255, 255, 0.14), transparent 18%),
-    linear-gradient(180deg, #110b22 0%, #1e183e 18%, #223762 34%, #4a2346 56%, #33483f 78%, #18261e 100%);
+    linear-gradient(180deg, #110b22 0%, #221742 24%, #37244f 44%, #4a2346 64%, #33483f 82%, #18261e 100%);
   overflow-x: hidden;
 }
 
@@ -91,10 +91,8 @@ a {
 .title-crest,
 .command-menu,
 .opening-panel,
-.world-map,
 .chapter-frame,
-.log-card,
-.map-node {
+.log-card {
   position: relative;
   border: 1px solid var(--line);
   box-shadow:
@@ -110,9 +108,7 @@ a {
 .version-mark,
 .scene-kicker,
 .chapter-tag,
-.chapter-class,
-.slot-label,
-.node-class {
+.slot-label {
   margin: 0;
   color: var(--gold);
   font-size: 0.76rem;
@@ -121,8 +117,7 @@ a {
 }
 
 h1,
-h2,
-h3 {
+h2 {
   margin: 0;
 }
 
@@ -141,7 +136,7 @@ h1 {
 }
 
 .subtitle {
-  max-width: 56ch;
+  max-width: 50ch;
   margin: 14px auto 0;
   color: var(--muted);
   line-height: 1.8;
@@ -176,8 +171,7 @@ h1 {
   letter-spacing: 0.1em;
 }
 
-.active-item,
-.map-link {
+.active-item {
   background:
     linear-gradient(90deg, rgba(255, 255, 255, 0.12), rgba(180, 240, 255, 0.12)),
     rgba(255, 255, 255, 0.04);
@@ -197,7 +191,6 @@ h1 {
 }
 
 .opening-panel h2,
-.map-header h2,
 .log-card h2 {
   margin-top: 12px;
   font-size: clamp(2rem, 3.5vw, 3.3rem);
@@ -205,64 +198,14 @@ h1 {
 }
 
 .opening-panel p:not(.scene-kicker),
-.map-header p:not(.slot-label),
 .chapter-frame p,
-.log-card p,
-.map-node p {
+.log-card p {
   color: var(--muted);
   line-height: 1.86;
 }
 
 .opening-panel p + p {
   margin-top: 14px;
-}
-
-.world-map {
-  margin-bottom: 24px;
-  padding: 28px;
-  border-radius: 32px;
-  background:
-    radial-gradient(circle at 78% 22%, rgba(180, 240, 255, 0.12), transparent 18%),
-    linear-gradient(135deg, rgba(242, 204, 132, 0.08), transparent 36%),
-    rgba(18, 14, 32, 0.72);
-}
-
-.map-header {
-  max-width: 68ch;
-  margin-bottom: 22px;
-}
-
-.map-track {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.map-node {
-  padding: 18px 14px 16px;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.node-rune {
-  display: inline-grid;
-  place-items: center;
-  width: 42px;
-  height: 42px;
-  margin-bottom: 12px;
-  border-radius: 50%;
-  border: 1px solid rgba(242, 204, 132, 0.28);
-  color: var(--gold);
-  background: rgba(14, 12, 28, 0.92);
-}
-
-.node-class {
-  margin-bottom: 6px;
-}
-
-.map-node h3 {
-  font-size: 1.15rem;
-  line-height: 1.2;
 }
 
 .chapter {
@@ -274,17 +217,6 @@ h1 {
   border-radius: 34px;
   overflow: hidden;
   backdrop-filter: blur(6px);
-}
-
-.chapter-meta {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 16px;
-  align-items: start;
-}
-
-.chapter-class {
-  text-align: right;
 }
 
 .chapter-title {
@@ -313,12 +245,6 @@ h1 {
     radial-gradient(circle at 18% 18%, rgba(255, 213, 176, 0.22), transparent 18%),
     linear-gradient(180deg, rgba(255, 225, 198, 0.08), transparent 22%),
     linear-gradient(135deg, rgba(218, 136, 113, 0.2), rgba(89, 42, 75, 0.32) 56%, rgba(24, 14, 34, 0.82) 100%);
-}
-
-.chapter-cobalt .chapter-frame {
-  background:
-    radial-gradient(circle at 80% 18%, rgba(155, 210, 255, 0.18), transparent 18%),
-    linear-gradient(135deg, rgba(32, 84, 156, 0.28), rgba(28, 49, 102, 0.42) 52%, rgba(14, 18, 38, 0.84) 100%);
 }
 
 .chapter-azure .chapter-frame {
@@ -373,25 +299,11 @@ h1 {
   color: var(--ink);
 }
 
-@media (max-width: 1120px) {
-  .map-track {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
 @media (max-width: 960px) {
   .title-layout,
   .chapter-columns,
   .closing-log {
     grid-template-columns: 1fr;
-  }
-
-  .chapter-meta {
-    grid-template-columns: 1fr;
-  }
-
-  .chapter-class {
-    text-align: left;
   }
 }
 
@@ -404,15 +316,9 @@ h1 {
 
   .command-menu,
   .opening-panel,
-  .world-map,
   .chapter-frame,
-  .log-card,
-  .map-node {
+  .log-card {
     border-radius: 20px;
-  }
-
-  .map-track {
-    grid-template-columns: 1fr;
   }
 
   h1 {
@@ -420,7 +326,6 @@ h1 {
   }
 
   .opening-panel h2,
-  .map-header h2,
   .log-card h2 {
     font-size: clamp(1.7rem, 8vw, 2.3rem);
   }
